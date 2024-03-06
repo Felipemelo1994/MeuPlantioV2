@@ -1,14 +1,17 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, StatusBar } from 'react-native';
 import Routes from './src/routes';
 import React from 'react';
+import { GluestackUIProvider } from '@gluestack-ui/themed';
+import { config } from '@gluestack-ui/config';
 
 export default function App() {
   return (
-      <Routes/>
-    // <View style={styles.container}>
-    //   <StatusBar style="auto" />
-    // </View>
+    <GluestackUIProvider config={config}>
+      <SafeAreaView style={{ flex: 1 }}>
+        <StatusBar barStyle="dark-content" backgroundColor="white" />
+        <Routes />
+      </SafeAreaView>
+    </GluestackUIProvider>
   );
 }
 

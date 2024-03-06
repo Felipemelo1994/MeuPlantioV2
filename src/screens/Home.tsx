@@ -1,20 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Center, Text } from '@gluestack-ui/themed';
+import React from 'react';
+import HeaderHome from '../components/HeaderHome';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function Home() {
   return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Center flex={1} bg='$white'>
+      <HeaderHome />
+    </Center>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

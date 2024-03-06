@@ -7,6 +7,7 @@ import QRCode from '../screens/QRCode'
 import Profile from '../screens/Profile'
 import Settings from '../screens/Settings'
 import { View, StyleSheet } from 'react-native'
+import React from 'react'
 
 const Tab = createBottomTabNavigator()
 
@@ -51,8 +52,8 @@ export default function TabRoutes() {
             <Tab.Screen name='qrcode' component={QRCode} options={{
                 tabBarIcon: ({ color, size, focused }) => {
                     return (
-                        <View style={{ height: 80, width: 80, borderRadius: 50, backgroundColor: '#077E41', alignItems: 'center', justifyContent: 'center', borderWidth: 6, borderColor: 'white' }}>
-                            <MaterialCommunityIcons name='qrcode-scan' color={'white'} size={35} />
+                        <View style={{ height: 80, width: 80, borderRadius: 50, elevation: (focused ? 2 : 0), backgroundColor: (focused ? '#FFF' : '#077E41'), alignItems: 'center', justifyContent: 'center', borderWidth: 6, borderColor: 'white' }}>
+                            <MaterialCommunityIcons name='qrcode-scan' color={focused ? '#077E41' : 'white'} size={35} />
                         </View>
                     )
                 },
