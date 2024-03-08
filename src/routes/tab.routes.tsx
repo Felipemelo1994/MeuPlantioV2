@@ -7,20 +7,24 @@ import QRCode from '../screens/QRCode'
 import Profile from '../screens/Profile'
 import Settings from '../screens/Settings'
 import { View, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useRef } from 'react'
+import { LinearGradient } from 'expo-linear-gradient'
+import LottieView from 'lottie-react-native'
 
 const Tab = createBottomTabNavigator()
 
 export default function TabRoutes() {
+    const animation = useRef(null);
     return (
         <Tab.Navigator
+            backBehavior='firstRoute'
             screenOptions={{
                 headerShown: false,
                 tabBarStyle: {
-                    backgroundColor: '#D5D7D5',
+                    backgroundColor: '#BCBCBC',
                     height: 55,
                     margin: 25,
-                    borderRadius: 50,
+                    borderRadius: 15,
                     shadowColor: 'transparent'
                 }
             }}>
@@ -32,7 +36,7 @@ export default function TabRoutes() {
                         return (
                             <>
                                 <Entypo name='home' color={color} size={24} />
-                                {focused && <View style={{ position: 'absolute', bottom: 8, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
+                                {focused && <View style={{ position: 'absolute', bottom: 6, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
                             </>
                         )
                     },
@@ -43,7 +47,7 @@ export default function TabRoutes() {
                 tabBarIcon: ({ color, size, focused }) => {
                     return (<>
                         <FontAwesome name="leaf" size={24} color={color} />
-                        {focused && <View style={{ position: 'absolute', bottom: 8, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
+                        {focused && <View style={{ position: 'absolute', bottom: 6, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
                     </>)
                 },
                 tabBarLabelStyle: { display: 'none' },
@@ -52,9 +56,24 @@ export default function TabRoutes() {
             <Tab.Screen name='qrcode' component={QRCode} options={{
                 tabBarIcon: ({ color, size, focused }) => {
                     return (
-                        <View style={{ height: 80, width: 80, borderRadius: 50, elevation: (focused ? 2 : 0), backgroundColor: (focused ? '#FFF' : '#077E41'), alignItems: 'center', justifyContent: 'center', borderWidth: 6, borderColor: 'white' }}>
-                            <MaterialCommunityIcons name='qrcode-scan' color={focused ? '#077E41' : 'white'} size={35} />
-                        </View>
+                        <LinearGradient
+                            start={{ x: 0, y: 0 }}
+                            colors={focused ? ['#EEEEEE', '#BCBCBC', '#BCBCBC'] : ['#23A763', '#026B35']}
+                            style={{ height: 80, width: 80, borderRadius: 50, backgroundColor: (focused ? '#FFF' : '#077E41'), alignItems: 'center', justifyContent: 'center', borderWidth: 6, borderColor: 'white', overflow: 'hidden' }}>
+                            {focused && <LottieView
+                                autoPlay
+                                ref={animation}
+                                style={{
+                                    position: 'absolute',
+                                    width: 110,
+                                    height: 110,
+                                    zIndex: 999
+                                }}
+                                // Find more Lottie files at https://lottiefiles.com/featured
+                                source={require('../../assets/lottie/scan-code.json')}
+                            />}
+                            <MaterialCommunityIcons name='qrcode-scan' color={'white'} size={35} />
+                        </LinearGradient>
                     )
                 },
                 tabBarLabelStyle: { display: 'none' },
@@ -64,7 +83,7 @@ export default function TabRoutes() {
                 tabBarIcon: ({ color, size, focused }) => {
                     return (<>
                         <Fontisto name="person" size={22} color={color} />
-                        {focused && <View style={{ position: 'absolute', bottom: 8, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
+                        {focused && <View style={{ position: 'absolute', bottom: 6, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
                     </>)
                 },
                 tabBarLabelStyle: { display: 'none' },
@@ -75,7 +94,7 @@ export default function TabRoutes() {
                     return (
                         <>
                             <Ionicons name='settings-sharp' color={color} size={24} />
-                            {focused && <View style={{ position: 'absolute', bottom: 8, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
+                            {focused && <View style={{ position: 'absolute', bottom: 6, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
                         </>)
                 },
                 tabBarLabelStyle: { display: 'none' },
