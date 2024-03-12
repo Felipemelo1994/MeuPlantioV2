@@ -9,10 +9,10 @@ export const Pressable = createStyle({
       _dark: {
         outlineColor: '$primary300',
       },
-    },
-    ':active': {
-      opacity: 0.4,
-      shadowOpacity: 0.5
     }
   },
+  ":active": {
+    opacity: 0.8,
+    shadowOpacity: 0.5
+  }
 });

@@ -1,15 +1,16 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Feather, Ionicons, Entypo, MaterialCommunityIcons, FontAwesome, Fontisto } from '@expo/vector-icons'
+import { Ionicons, Entypo, MaterialCommunityIcons, FontAwesome, Fontisto } from '@expo/vector-icons'
 
 import Home from '../screens/Home'
 import AddPlant from '../screens/AddPlant'
 import QRCode from '../screens/QRCode'
 import Profile from '../screens/Profile'
 import Settings from '../screens/Settings'
-import { View, StyleSheet } from 'react-native'
+import { View } from 'react-native'
 import React, { useRef } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import LottieView from 'lottie-react-native'
+import StackRoutes from './stack.routes'
 
 const Tab = createBottomTabNavigator()
 
@@ -20,34 +21,32 @@ export default function TabRoutes() {
             backBehavior='firstRoute'
             screenOptions={{
                 headerShown: false,
+                lazy: false,
                 tabBarStyle: {
                     backgroundColor: '#BCBCBC',
-                    height: 55,
-                    margin: 25,
+                    height: 65,
+                    margin: 20,
                     borderRadius: 15,
                     shadowColor: 'transparent'
                 }
             }}>
-            <Tab.Screen
-                name='home'
-                component={Home}
-                options={{
-                    tabBarIcon: ({ color, size, focused }) => {
-                        return (
-                            <>
-                                <Entypo name='home' color={color} size={24} />
-                                {focused && <View style={{ position: 'absolute', bottom: 6, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
-                            </>
-                        )
-                    },
-                    tabBarLabelStyle: { display: 'none' },
-                    tabBarActiveTintColor: 'white'
-                }} />
+            <Tab.Screen name='home' component={Home} options={{
+                tabBarIcon: ({ color, size, focused }) => {
+                    return (
+                        <>
+                            <Entypo name='home' color={color} size={24} />
+                            {focused && <View style={{ position: 'absolute', bottom: 12, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
+                        </>
+                    )
+                },
+                tabBarLabelStyle: { display: 'none' },
+                tabBarActiveTintColor: 'white'
+            }} />
             <Tab.Screen name='planting' component={AddPlant} options={{
                 tabBarIcon: ({ color, size, focused }) => {
                     return (<>
                         <FontAwesome name="leaf" size={24} color={color} />
-                        {focused && <View style={{ position: 'absolute', bottom: 6, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
+                        {focused && <View style={{ position: 'absolute', bottom: 12, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
                     </>)
                 },
                 tabBarLabelStyle: { display: 'none' },
@@ -83,7 +82,7 @@ export default function TabRoutes() {
                 tabBarIcon: ({ color, size, focused }) => {
                     return (<>
                         <Fontisto name="person" size={22} color={color} />
-                        {focused && <View style={{ position: 'absolute', bottom: 6, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
+                        {focused && <View style={{ position: 'absolute', bottom: 12, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
                     </>)
                 },
                 tabBarLabelStyle: { display: 'none' },
@@ -94,7 +93,7 @@ export default function TabRoutes() {
                     return (
                         <>
                             <Ionicons name='settings-sharp' color={color} size={24} />
-                            {focused && <View style={{ position: 'absolute', bottom: 6, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
+                            {focused && <View style={{ position: 'absolute', bottom: 12, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
                         </>)
                 },
                 tabBarLabelStyle: { display: 'none' },
@@ -103,12 +102,3 @@ export default function TabRoutes() {
         </Tab.Navigator>
     )
 }
-const styles = StyleSheet.create({
-    container: {
-        height: 50,
-        width: 50,
-        backgroundColor: '#3D7E4A',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});

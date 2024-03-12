@@ -43,7 +43,7 @@ export default function GraphicsCard() {
                 </HStack>
 
                 <HStack w={'$full'} px={'$4'} position='absolute' bottom={10} justifyContent='space-between'>
-                    <VStack>
+                    <VStack >
                         <Text fontFamily={'Poppins_700Bold'} fontSize={'$2xl'} color={'$#94BF9D'}>
                             {'25.5%'}
                         </Text>
@@ -51,20 +51,22 @@ export default function GraphicsCard() {
                             {'Adubadas'}
                         </Text>
                     </VStack>
+
+                    <VStack>
+                        <Text fontFamily={'Poppins_700Bold'} fontSize={'$2xl'} color={'$#EBA71E'}>
+                            {'25.5%'}
+                        </Text>
+                        <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$sm'} color={'$white'}>
+                            {'Próximas do adubamento'}
+                        </Text>
+                    </VStack>
+
                     <VStack>
                         <Text fontFamily={'Poppins_700Bold'} fontSize={'$2xl'} color={'$#FF6F6F'}>
                             {'25.5%'}
                         </Text>
                         <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$sm'} color={'$white'}>
                             {'Não adubadas'}
-                        </Text>
-                    </VStack>
-                    <VStack>
-                        <Text fontFamily={'Poppins_700Bold'} fontSize={'$2xl'} color={'$#EFA000'}>
-                            {'25.5%'}
-                        </Text>
-                        <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$sm'} color={'$white'}>
-                            {'Próximas do adubamento'}
                         </Text>
                     </VStack>
                 </HStack>

@@ -1,9 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import HeaderHome from '../components/Header';
 
 export default function Profile() {
   return (
     <View style={styles.container}>
+      <HeaderHome title={'Perfil'} />
       <Text>Profile</Text>
     </View>
   );
