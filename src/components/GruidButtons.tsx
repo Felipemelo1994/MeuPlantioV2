@@ -1,12 +1,8 @@
 import { useNavigation } from '@react-navigation/native'
-import { HStack, Text, Box, Pressable, VStack } from '@gluestack-ui/themed'
+import { HStack, Text, Box, Pressable } from '@gluestack-ui/themed'
 import React from 'react'
 import IconHistory from '../../assets/icon-history.svg'
-import IconPlanting from '../../assets/icon-planting.svg'
 import IconAddUser from '../../assets/icon-add-user.svg'
-import IconProfile from '../../assets/icon-user.svg'
-import IconSettings from '../../assets/icon-settings.svg'
-import IconQrcode from '../../assets/qrcode.svg'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins'
 import { useFonts } from 'expo-font';
@@ -82,12 +78,12 @@ const GridButtons = () => {
 
     return (
         <HStack w={'$full'} justifyContent='space-between' px={'$3.5'}>
-            <Pressable onPress={() => console.log('heloo')}>
+            <Pressable onPress={() => navigation.navigate('plantingHistory')} $active-backgroundColor='$rgba(0,255,0,0.9)' rounded={'$2xl'}>
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
                     colors={['#EEEEEE', '#BCBCBC']}
-                    style={{ height: 80, width: 183, borderRadius: 15, justifyContent: 'center' }}>
-                    <HStack justifyContent='center' alignItems='center' pl={'$2'}>
+                    style={{ height: 80, borderRadius: 15, justifyContent: 'center' }}>
+                    <HStack justifyContent='center' alignItems='center' p={'$3'} >
                         <Box
                             justifyContent="center"
                             alignItems={'center'}
@@ -106,12 +102,12 @@ const GridButtons = () => {
                 </LinearGradient>
             </Pressable>
 
-            <Pressable>
+            <Pressable onPress={() => navigation.navigate('userManagement')} $active-backgroundColor='$rgba(0,255,0,0.9)' rounded={'$2xl'}>
                 <LinearGradient
                     start={{ x: 0, y: 0 }}
                     colors={['#EEEEEE', '#BCBCBC']}
-                    style={{ height: 80, width: 183, borderRadius: 15, justifyContent: 'center' }}>
-                    <HStack justifyContent='center' alignItems='center' pl={'$2'}>
+                    style={{ height: 80, borderRadius: 15, justifyContent: 'center' }}>
+                    <HStack justifyContent='center' alignItems='center' p={'$3'}>
                         <Box
                             justifyContent="center"
                             alignItems={'center'}
@@ -124,7 +120,7 @@ const GridButtons = () => {
                             <IconAddUser height={30} width={30} />
                         </Box>
                         <Text w={100} fontFamily={'Poppins_600SemiBold'} fontSize={'$lg'} color={'$white'}>
-                            {'Adicionar Plantas'}
+                            {'Gerenciar Usuários'}
                         </Text>
                     </HStack>
                 </LinearGradient>
