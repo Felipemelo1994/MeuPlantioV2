@@ -14,7 +14,7 @@ type Props = any & {
     isGoBack?: boolean
 }
 
-export default function HeaderHome({ title, isHome, iconOption, isGoBack, ...rest }: Props) {
+export default function Header({ title, isHome, iconOption, isGoBack, ...rest }: Props) {
     const [fontLoaded] = useFonts({
         Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold
     })
@@ -25,16 +25,13 @@ export default function HeaderHome({ title, isHome, iconOption, isGoBack, ...res
     }
 
     return (
-        <HStack mx={'$4'} position='absolute' top={15} {...rest}>
-            {/* <VStack justifyContent='center' alignItems='center' w={'$full'} h={'$20'} bg='#E6FFBE' px={'$5'} rounded={'$2xl'}>
-                <Text>Home</Text>
-            </VStack> */}
+        <HStack px={'$4'} position='absolute' top={15} {...rest}>
             <LinearGradient
                 start={{ x: 0.444666, y: 0.5 }}
-                colors={['#F0F6E6', '#E6FFBE']}
+                colors={['rgba(240,246,230,0.9)', 'rgba(230,255,190,0.9)']}
                 style={{ width: '100%', height: 65, justifyContent: 'center', borderRadius: 15 }}>
                 {isHome ? (<HStack justifyContent='space-between' mx={'$2'}>
-                    <Pressable $active-backgroundColor='$rgba(0,0,0,0.1)' p={'$2'} rounded={'$lg'} onPress={() => navigation.navigate('profile')}>
+                    <Pressable $active-backgroundColor='$rgba(0,0,0,0.2)' p={'$2'} rounded={'$lg'} onPress={() => navigation.navigate('profile')}>
                         <HStack alignItems='center' space='sm'>
                             <Avatar width={38} height={38} bg='#3D7E4A'>
                                 <AvatarFallbackText size='xl'>Felipe Melo</AvatarFallbackText>

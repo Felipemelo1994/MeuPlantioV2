@@ -1,12 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import HeaderHome from '../components/Header';
+import Header from '../components/Header';
 import { FontAwesome5 } from '@expo/vector-icons'
 
 export default function AddPlant() {
   return (
     <View style={styles.container}>
-      <HeaderHome title={'Adicionar planta'} iconOption={<FontAwesome5 name="question-circle" size={20} color="#2F865A" />} />
+      <Header title={'Adicionar planta'} iconOption={<FontAwesome5 name="question-circle" size={20} color="#2F865A" />} />
       <Text>AddPlant</Text>
     </View>
   );

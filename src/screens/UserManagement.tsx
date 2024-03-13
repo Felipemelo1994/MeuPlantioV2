@@ -1,21 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import HeaderHome from '../components/Header';
+import Header from '../components/Header';
+import { Box, Fab, Text } from '@gluestack-ui/themed';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Entypo } from '@expo/vector-icons'
+import { useNavigation } from '@react-navigation/native';
+import CustomCircleFab from '../components/CustomCircleFab';
 
 export default function UserManagement() {
+    const navigation = useNavigation()
+
     return (
-        <View style={styles.container}>
-            <HeaderHome isGoBack title={'Gerenciar Usuários'} />
+        <Box flex={1} bg='$white' alignItems='center' justifyContent='center'>
+            <Header isGoBack title={'Gerenciar Usuários'} />
             <Text>UserManagement</Text>
-        </View>
+
+            <CustomCircleFab route='addUser' />
+        </Box>
     );
 }
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
