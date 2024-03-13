@@ -1,21 +1,33 @@
-import { Center, VStack } from '@gluestack-ui/themed';
+import { Center, ScrollView, VStack } from '@gluestack-ui/themed';
 import React from 'react';
-import HeaderHome from '../components/Header';
+import Header from '../components/Header';
 import GraphicsCard from '../components/GraphicsCard';
-import GridButtons from '../components/GruidButtons';
+import GridButtons from '../components/GridButtons';
 
 export default function Home() {
   return (
-    <Center flex={1} bg='$white'>
-      <HeaderHome isHome />
+    <VStack bg='$white'>
+      <Header isHome />
 
-      <VStack position='absolute' top={90} space='xs'>
+      <ScrollView zIndex={-1} pt={90}>
         <GraphicsCard />
         <GridButtons />
-      </VStack>
+        {/* <GraphicsCard />
+        <GraphicsCard />
+
+        <GraphicsCard />
+        <GraphicsCard />
+        <GraphicsCard />
+        <GraphicsCard />
+        <GraphicsCard />
+        <GraphicsCard />
+        <GraphicsCard />
+        <GraphicsCard /> */}
+
+      </ScrollView>
 
 
-    </Center>
+    </VStack>
   );
 }
 
