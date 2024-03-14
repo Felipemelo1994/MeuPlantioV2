@@ -3,6 +3,8 @@ import { HStack, Text, Box, Pressable } from '@gluestack-ui/themed'
 import React from 'react'
 import IconHistory from '../../assets/icon-history.svg'
 import IconAddUser from '../../assets/icon-add-user.svg'
+import IconSettings from '../../assets/icon-settings.svg'
+import IconQrcode from '../../assets/qrcode.svg'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins'
 import { useFonts } from 'expo-font';
@@ -22,17 +24,22 @@ const DATA = [
         subTitle: 'Cadastre novas plantas no seu plantio',
         icon: <IconAddUser height={30} width={30} />,
         route: 'userManagement',
+    },
+    {
+        id: '3',
+        title: 'Preferencias do Usuário',
+        subTitle: 'Veja e gerencie o histórico do seu plantio cadastrado',
+        icon: <IconSettings height={30} width={30} />,
+        route: 'plantingHistory',
+    },
+    {
+        id: '4',
+        title: 'Escanear QRCode',
+        subTitle: 'Cadastre novas plantas no seu plantio',
+        icon: <IconQrcode height={30} width={30} />,
+        route: 'userManagement',
     }
 ]
-
-const userData = {
-    data: {
-        title: 'Felipe Matheus',
-        email: 'felipe.melo@sidia.com',
-        subtitle: 'Dev I',
-        core: 'Jardim do Norte',
-    },
-}
 
 const GridButtons = ({ ...rest }) => {
     const navigation = useNavigation()
@@ -44,48 +51,16 @@ const GridButtons = ({ ...rest }) => {
         return null
     }
 
-    const renderItem = (item: any, index: number) => (
-        <Pressable
-            onPress={() => { }}
-            my={'$2'}
-            w={175}
-            mx={'$3.5'}
-            h={'$20'}
-        >
-            <LinearGradient
-                start={{ x: 0, y: 0 }}
-                colors={['#EEEEEE', '#BCBCBC']}
-                style={{ height: '100%', width: '100%', borderRadius: 15, justifyContent: 'center' }}>
-                <HStack justifyContent='center' alignItems='center' pl={'$2'}>
-                    <Box
-                        justifyContent="center"
-                        alignItems={'center'}
-                        style={{ width: 55, height: 55 }}
-                        rounded={'$full'}
-                        elevation={'$2.5'}
-                        bg={'white'}
-                        mr={'$2'}
-                    >
-                        {item.icon}
-                    </Box>
-                    <Text w={100} fontFamily={'Poppins_600SemiBold'} fontSize={'$lg'} color={'$white'}>
-                        {item.title}
-                    </Text>
-                </HStack>
-            </LinearGradient>
-        </Pressable>
-    )
-
     return (
         <HStack flexWrap='wrap' w={'$full'} justifyContent='space-between' px={'$4'}  {...rest}>
             {DATA.map(item => {
                 return (
-                    <Pressable onPress={() => navigation.navigate(item.route)} $active-backgroundColor='$rgba(0,255,0,0.9)' rounded={'$2xl'}>
+                    <Pressable key={item.id} h={'$20'} mb={'$2'} onPress={() => navigation.navigate(item.route)} $active-backgroundColor='$rgba(0,255,0,0.9)' rounded={'$2xl'}>
                         <LinearGradient
                             start={{ x: 0, y: 0 }}
                             colors={['#EEEEEE', '#BCBCBC']}
                             style={{ height: 80, borderRadius: 15, marginBottom: 10, justifyContent: 'center' }}>
-                            <HStack justifyContent={'center'} alignItems='center' p={'$2.5'} >
+                            <HStack justifyContent={'center'} alignItems='center' p={11} >
                                 <Box
                                     justifyContent="center"
                                     alignItems={'center'}
@@ -105,30 +80,6 @@ const GridButtons = ({ ...rest }) => {
                     </Pressable>
                 )
             })}
-
-            {/* <Pressable onPress={() => navigation.navigate('userManagement')} $active-backgroundColor='$rgba(0,255,0,0.9)' rounded={'$2xl'}>
-                <LinearGradient
-                    start={{ x: 0, y: 0 }}
-                    colors={['#EEEEEE', '#BCBCBC']}
-                    style={{ height: 80, borderRadius: 15, justifyContent: 'center' }}>
-                    <HStack justifyContent='center' alignItems='center' p={'$3'}>
-                        <Box
-                            justifyContent="center"
-                            alignItems={'center'}
-                            style={{ width: 55, height: 55 }}
-                            rounded={'$full'}
-                            elevation={'$2.5'}
-                            bg={'white'}
-                            mr={'$2'}
-                        >
-                            <IconAddUser height={30} width={30} />
-                        </Box>
-                        <Text w={100} fontFamily={'Poppins_600SemiBold'} fontSize={'$lg'} color={'$white'}>
-                            {'Gerenciar Usuários'}
-                        </Text>
-                    </HStack>
-                </LinearGradient>
-            </Pressable> */}
         </HStack >
     )
 }
