@@ -21,10 +21,10 @@ export default function TabRoutes() {
     function MyTabBar({ state, descriptors, navigation, insets }: BottomTabBarProps) {
         return (
             <LinearGradient
-                start={{ x: 0, y: 0 }}
-                end={{ x: 1.2, y: 0.9 }}
-                colors={['#EEEEEE', '#BCBCBC', '#BCBCBC']}
-                style={{ flexDirection: 'row', height: 65, borderRadius: 10, alignItems: 'center', justifyContent: 'center', overflow: 'hidden', margin: 15, padding: 10 }}
+                start={{ x: 0.5, y: 0.01 }}
+                // end={{ x: 0.2, y: 0.6 }}
+                colors={['rgba(238,238,238,0.9)', 'rgba(188,188,188,0.9)']}
+                style={{ flexDirection: 'row', height: 65, bottom: 90, borderRadius: 15, alignItems: 'center', justifyContent: 'center', marginHorizontal: 16, marginBottom: -65, padding: 10 }}
             >
                 {state.routes.map((route, index) => {
                     const { options } = descriptors[route.key];
@@ -76,14 +76,14 @@ export default function TabRoutes() {
                                     <LinearGradient
                                         start={{ x: 0, y: 0 }}
                                         colors={isFocused ? ['#EEEEEE', '#BCBCBC', '#BCBCBC'] : ['#026B35', '#23A763']}
-                                        style={{ height: 77, width: 77, borderRadius: 50, backgroundColor: (isFocused ? '#FFF' : '#077E41'), alignItems: 'center', justifyContent: 'center', borderWidth: 6, borderColor: 'white', overflow: 'hidden' }}>
+                                        style={{ height: 85, width: 85, borderRadius: 50, backgroundColor: (isFocused ? '#FFF' : '#077E41'), alignItems: 'center', justifyContent: 'center', borderWidth: 6, borderColor: 'white', overflow: 'hidden' }}>
                                         {isFocused && <LottieView
                                             autoPlay
                                             ref={animation}
                                             style={{
                                                 position: 'absolute',
-                                                width: 110,
-                                                height: 110,
+                                                width: 120,
+                                                height: 120,
                                                 zIndex: 999
                                             }}
                                             // Find more Lottie files at https://lottiefiles.com/featured

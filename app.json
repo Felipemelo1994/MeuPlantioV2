@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "expo-app",
-    "slug": "expo-app",
+    "name": "Meu Plantio",
+    "slug": "Meu Plantio",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo_myplant.svg",
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/splash.png",

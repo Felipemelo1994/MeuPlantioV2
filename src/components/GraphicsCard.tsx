@@ -13,7 +13,7 @@ const chartPlanting = [
     },
     {
         percent: '30.5',
-        title: 'Próxuimo do abuubamento',
+        title: 'Próximo do abubamento',
         color: '$#EBA71E'
     },
     {
@@ -60,9 +60,9 @@ export default function GraphicsCard() {
                     </HStack>
 
                     <HStack w={'$full'} px={'$4'} py={'$2.5'} justifyContent='space-between' alignItems='center'>
-                        {chartPlanting.map(item => {
+                        {chartPlanting.map((item, index) => {
                             return (
-                                <VStack >
+                                <VStack key={index}>
                                     <Text fontFamily={'Poppins_700Bold'} fontSize={'$2xl'} color={item.color}>
                                         {item.percent + '%'}
                                     </Text>
