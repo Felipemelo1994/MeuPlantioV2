@@ -31,7 +31,7 @@ export default function Header({ title, isHome, iconOption, isGoBack, ...rest }:
                 colors={['rgba(240,246,230,0.9)', 'rgba(230,255,190,0.9)']}
                 style={{ width: '100%', height: 65, justifyContent: 'center', borderRadius: 15 }}>
                 {isHome ? (<HStack justifyContent='space-between' mx={'$2'}>
-                    <Pressable $active-backgroundColor='$rgba(0,0,0,0.2)' p={'$2'} rounded={'$lg'} onPress={() => navigation.navigate('profile')}>
+                    <Pressable $active-backgroundColor='$rgba(0,255,0,0.1)' p={'$2'} rounded={'$lg'} onPress={() => navigation.navigate('profile')}>
                         <HStack alignItems='center' space='sm'>
                             <Avatar width={38} height={38} bg='#3D7E4A'>
                                 <AvatarFallbackText size='xl'>Felipe Melo</AvatarFallbackText>

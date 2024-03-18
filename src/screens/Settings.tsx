@@ -1,21 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import Header from '../components/Header';
+import { VStack, Text, HStack } from '@gluestack-ui/themed';
 
 export default function Settings() {
   return (
-    <View style={styles.container}>
+    <VStack width={'$full'} bg='$white' alignItems='center'>
       <Header title={'Preferências'} />
-      <Text>Settings</Text>
-    </View>
+
+      <HStack w={'$full'} h={'$64'} px={'$4'} mt={95} borderWidth={1} borderColor='$trueGray200' bg='$white' alignItems='center' justifyContent='center'>
+        <Text>Settings</Text>
+      </HStack>
+    </VStack>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

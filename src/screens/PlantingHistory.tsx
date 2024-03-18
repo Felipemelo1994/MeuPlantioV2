@@ -14,7 +14,7 @@ import IconHistory from '../../assets/icon-history.svg'
 const plants = [
     {
         id: '1',
-        title: 'Chacrona',
+        title: 'Chacrona Caianinha do bareirinha',
         status: 'FERTILIZED',
         type: 'chacrona',
     },
@@ -83,7 +83,7 @@ export default function PlantingHistory() {
         <VStack flex={1} bg='$white' justifyContent='center' alignItems='center'>
             <Header isGoBack title={'Histórico de Plantio'} />
 
-            {isEmpty ? (
+            {!isEmpty ? (
                 <EmptyScreen title={'Não há plantas cadastradas'} subTitle={'Adicione uma nova planta'} icon={<IconHistory height={120} width={120} />} />
             ) :
                 (<ScrollView w={'$full'} zIndex={-1} >
@@ -98,7 +98,7 @@ export default function PlantingHistory() {
                                 <CustomCard
                                     key={index}
                                     item={item}
-                                    isEmpty={isEmpty}
+                                    isEmpty={!isEmpty}
                                     onPress={() => { }}
                                 />
                             )

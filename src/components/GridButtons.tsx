@@ -25,20 +25,20 @@ const DATA = [
         icon: <IconAddUser height={30} width={30} />,
         route: 'userManagement',
     },
-    {
-        id: '3',
-        title: 'Preferencias do Usuário',
-        subTitle: 'Veja e gerencie o histórico do seu plantio cadastrado',
-        icon: <IconSettings height={30} width={30} />,
-        route: 'plantingHistory',
-    },
-    {
-        id: '4',
-        title: 'Escanear QRCode',
-        subTitle: 'Cadastre novas plantas no seu plantio',
-        icon: <IconQrcode height={30} width={30} />,
-        route: 'userManagement',
-    }
+    // {
+    //     id: '3',
+    //     title: 'Preferencias do Usuário',
+    //     subTitle: 'Veja e gerencie o histórico do seu plantio cadastrado',
+    //     icon: <IconSettings height={30} width={30} />,
+    //     route: 'plantingHistory',
+    // },
+    // {
+    //     id: '4',
+    //     title: 'Escanear QRCode',
+    //     subTitle: 'Cadastre novas plantas no seu plantio',
+    //     icon: <IconQrcode height={30} width={30} />,
+    //     route: 'userManagement',
+    // }
 ]
 
 const GridButtons = ({ ...rest }) => {
