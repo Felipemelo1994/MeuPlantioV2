@@ -52,10 +52,10 @@ export default function TabRoutes() {
                     };
 
                     const iconsArr: { [key: string]: React.ReactElement } = {
-                        'home': <Entypo name='home' color={isFocused ? '#999999' : "#FFFFFF"} size={24} />,
-                        'addPlant': <FontAwesome name="leaf" size={24} color={isFocused ? '#999999' : "#FFFFFF"} />,
-                        'profile': <Fontisto name="person" size={22} color={isFocused ? '#999999' : "#FFFFFF"} />,
-                        'settings': <Ionicons name='settings-sharp' color={isFocused ? '#999999' : "#FFFFFF"} size={24} />,
+                        'home': <Entypo name='home' color={isFocused ? '#FFFFFF' : "#999999"} size={24} />,
+                        'addPlant': <FontAwesome name="leaf" size={24} color={isFocused ? '#FFFFFF' : "#999999"} />,
+                        'profile': <Fontisto name="person" size={22} color={isFocused ? '#FFFFFF' : "#999999"} />,
+                        'settings': <Ionicons name='settings-sharp' color={isFocused ? '#FFFFFF' : "#999999"} size={24} />,
                     }
 
                     const iconList = {

@@ -1,9 +1,11 @@
 /* eslint-disable react/react-in-jsx-scope */
-import { Box, HStack, Pressable, Text, VStack } from '@gluestack-ui/themed'
+import { Avatar, AvatarFallbackText, Box, HStack, Pressable, Text, VStack } from '@gluestack-ui/themed'
 import FertilizeGreenIcon from '../../assets/fertiliz_green_icon.svg'
 import FertilizeYellowIcon from '../../assets/fertiliz_yellow_icon.svg'
 import FertilizeRedIcon from '../../assets/fertiliz_red_icon.svg'
 import LeavesIcon from '../../assets/logo_myplant.svg'
+import IconPlanting from '../../assets/icon-planting.svg'
+import IconHistory from '../../assets/icon-history.svg'
 import moment from 'moment'
 import { useFonts } from "expo-font";
 import React, { useEffect, useState } from "react";
@@ -64,11 +66,11 @@ const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, ...rest }: Props) 
         return null
     }
 
-    const iconDefault =
-        item.type === 'chacrona' || item.type === 'mariri' ? (
-            <LeavesIcon height={40} width={40} />
+    const imgCircular =
+        item.type ? (
+            <IconPlanting height={40} width={40} />
         ) : (
-            <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$lg'} color={'grayscale.100'}>
+            <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$2xl'} color={'$white'}>
                 {getInitials(item.title)}
             </Text>
         )
@@ -77,10 +79,10 @@ const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, ...rest }: Props) 
         <>
             {isEmpty ? (<></>) : (<Pressable
                 onPress={onPress}
-                $active-backgroundColor='$rgba(0,255,0,0.9)'
+                $active-backgroundColor='$rgba(0,255,0,0.5)'
                 justifyContent={'center'}
                 mx={'$4'}
-                mb={'$3'}
+                mb={'$2'}
                 h={'$20'}
                 // elevation={'$1'}
                 rounded={'$lg'}
@@ -92,25 +94,25 @@ const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, ...rest }: Props) 
                     style={{ width: '100%', height: '100%', justifyContent: 'center', borderRadius: 8, paddingHorizontal: 10 }}>
                     <HStack justifyContent={'space-between'}>
                         <HStack alignItems={'center'} space={'md'}>
-                            <Box
+                            {item.type ? (<Box
                                 w={'$12'}
                                 h={'$12'}
                                 borderColor={'$blueGray500'}
                                 rounded={'$full'}
                                 elevation={8}
-                                bg={
-                                    item.type === 'chacrona' || item.type === 'mariri'
-                                        ? '$white'
-                                        : '$white'
-                                }
+                                bg={item.type ? '$white' : '#3D7E4A'}
                                 alignItems={'center'}
                                 justifyContent={'center'}
                             >
-                                {item.image ? item.image : iconDefault}
-                            </Box>
+                                {<IconPlanting height={30} width={30} />}
+                            </Box>) : (
+                                <Avatar width={48} height={48} bg='#3D7E4A'>
+                                    <AvatarFallbackText size='2xl'>{item.title}</AvatarFallbackText>
+                                </Avatar>
+                            )}
                             <VStack justifyContent={'center'}>
                                 <Text
-                                    maxWidth={hideDataStatus ? '$20' : '$32'}
+                                    maxWidth={hideDataStatus ? '$56' : '$56'}
                                     fontFamily={'Poppins_600SemiBold'}
                                     fontSize={'$md'}
                                     color={'$blueGray900'}
