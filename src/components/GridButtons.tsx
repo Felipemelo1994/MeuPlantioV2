@@ -20,25 +20,25 @@ const DATA = [
     },
     {
         id: '2',
-        title: 'Adicionar Usuaários',
+        title: 'Adicionar Usuários',
         subTitle: 'Cadastre novas plantas no seu plantio',
         icon: <IconAddUser height={30} width={30} />,
         route: 'userManagement',
     },
-    // {
-    //     id: '3',
-    //     title: 'Preferencias do Usuário',
-    //     subTitle: 'Veja e gerencie o histórico do seu plantio cadastrado',
-    //     icon: <IconSettings height={30} width={30} />,
-    //     route: 'plantingHistory',
-    // },
-    // {
-    //     id: '4',
-    //     title: 'Escanear QRCode',
-    //     subTitle: 'Cadastre novas plantas no seu plantio',
-    //     icon: <IconQrcode height={30} width={30} />,
-    //     route: 'userManagement',
-    // }
+    {
+        id: '3',
+        title: 'Preferências',
+        subTitle: 'Veja e gerencie o histórico do seu plantio cadastrado',
+        icon: <IconSettings height={30} width={30} />,
+        route: 'plantingHistory',
+    },
+    {
+        id: '4',
+        title: 'Escanear QRCode',
+        subTitle: 'Cadastre novas plantas no seu plantio',
+        icon: <IconQrcode height={30} width={30} />,
+        route: 'userManagement',
+    }
 ]
 
 const GridButtons = ({ ...rest }) => {
@@ -72,7 +72,7 @@ const GridButtons = ({ ...rest }) => {
                                 >
                                     {item.icon}
                                 </Box>
-                                <Text w={100} fontFamily={'Poppins_600SemiBold'} fontSize={'$lg'} color={'$white'}>
+                                <Text w={100} fontFamily={'Poppins_600SemiBold'} fontSize={'$sm'} color={'$white'}>
                                     {item.title}
                                 </Text>
                             </HStack>

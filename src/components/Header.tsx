@@ -1,7 +1,8 @@
-import { Avatar, AvatarBadge, AvatarFallbackText, AvatarImage, Box, Center, HStack, Pressable, Text, VStack } from '@gluestack-ui/themed';
+import { Avatar, AvatarBadge, AvatarFallbackText, AvatarImage, Box, Center, Divider, HStack, Pressable, Text, VStack } from '@gluestack-ui/themed';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
 import Logo from '../../assets/logo_myplant.svg'
+import LogoMeuPlantio from '../../assets/logo_plantio_white.svg'
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins'
 import { useFonts } from 'expo-font';
 import { FontAwesome6 } from '@expo/vector-icons'
@@ -29,35 +30,38 @@ export default function Header({ title, isHome, iconOption, isGoBack, ...rest }:
             <LinearGradient
                 start={{ x: 0.444666, y: 0.5 }}
                 colors={['rgba(240,246,230,0.9)', 'rgba(230,255,190,0.9)']}
-                style={{ width: '100%', height: 65, justifyContent: 'center', borderRadius: 15 }}>
-                {isHome ? (<HStack justifyContent='space-between' mx={'$2'}>
-                    <Pressable $active-backgroundColor='$rgba(0,255,0,0.1)' p={'$2'} rounded={'$lg'} onPress={() => navigation.navigate('profile')}>
+                style={{ width: '100%', height: isHome ? 110 : 65, justifyContent: 'center', borderRadius: 15 }}>
+                {isHome ? (<HStack justifyContent='space-between' alignItems='center' mx={'$2'}>
+                    <Pressable $active-backgroundColor='$rgba(0,255,0,0.1)' rounded={'$lg'} onPress={() => navigation.navigate('profile')}>
                         <HStack alignItems='center' space='sm'>
-                            <Avatar width={38} height={38} bg='#3D7E4A'>
-                                <AvatarFallbackText size='xl'>Felipe Melo</AvatarFallbackText>
+                            <Avatar width={55} height={55} bg='#0DA572'>
+                                <AvatarFallbackText size='2xl'>Felipe Melo</AvatarFallbackText>
                             </Avatar>
 
                             <VStack>
-                                <Text color='$black' fontSize={'$sm'} fontFamily='Poppins_600SemiBold'>Olá Felipe Melo!</Text>
-                                <Text color='#999999' fontSize={'$xs'} fontFamily='Poppins_700Bold'>Núcleo Jardim do Norte</Text>
+                                <Text color='$black' fontSize={'$md'} fontFamily='Poppins_700Bold'>Olá Felipe Melo!</Text>
+                                <Text color='#999999' fontSize={'$sm'} fontFamily='Poppins_700Bold'>Núcleo Jardim do Norte</Text>
                             </VStack>
                         </HStack>
                     </Pressable>
+                    {/* <Divider orientation='vertical' w={8} h={8} rounded={'$full'} bgColor='$blueGray400' /> */}
 
-                    <HStack space={'xs'} alignItems={'center'} justifyContent={'center'}>
+                    {/* <HStack space={'xs'} alignItems={'center'} justifyContent={'center'} p={'$2.5'} rounded={'$full'} bgColor='rgba(0,0,0,0.09)'>
+                        <Center w={'$7'} h={'$7'} bg='$white' rounded={"$full"} elevation={10}>
+                            <Logo height={22} width={22} />
+                        </Center>
                         <Text
-                            fontSize={'$3xl'}
+                            fontSize={'$lg'}
                             fontFamily='Poppins_600SemiBold'
-                            textAlign="center" h={'$8'}
+                            textAlign="center"
                             numberOfLines={1}
                             color='#077E41'
                         >
                             Meu Plantio
                         </Text>
-                        <Center w={'$7'} h={'$7'} bg='$white' rounded={"$full"} elevation={10}>
-                            <Logo height={22} width={22} />
-                        </Center>
-                    </HStack>
+                    </HStack> */}
+
+                    <LogoMeuPlantio height={150} width={150} />
                 </HStack>) : (
                     <>
                         {isGoBack && <Pressable

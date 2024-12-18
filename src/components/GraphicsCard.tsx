@@ -9,17 +9,17 @@ const chartPlanting = [
     {
         percent: '60.4',
         title: 'Adubadas',
-        color: '$#94BF9D'
+        color: '$#0DA572'
     },
     {
         percent: '30.5',
         title: 'Próximo do abubamento',
-        color: '$#EBA71E'
+        color: '$#FADA7A'
     },
     {
         percent: '9.1',
         title: 'Não adubado',
-        color: '$#FF6F6F'
+        color: '$#F95454'
     }
 ]
 export default function GraphicsCard() {
@@ -39,7 +39,7 @@ export default function GraphicsCard() {
                 <VStack flex={1} justifyContent='space-between'>
                     <HStack w={'$full'} h={80} px={'$4'} py={'$1.5'} top={12} justifyContent='space-between'>
                         <VStack h={'$full'} justifyContent='center'>
-                            <Text fontFamily={'Poppins_700Bold'} fontSize={'$7xl'} color={'#077E41'}>
+                            <Text fontFamily={'Poppins_700Bold'} fontSize={'$6xl'} color={'#0DA572'}>
                                 {'50'}
                             </Text>
                             <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$lg'} color={'$white'}>
@@ -63,10 +63,10 @@ export default function GraphicsCard() {
                         {chartPlanting.map((item, index) => {
                             return (
                                 <VStack key={index}>
-                                    <Text fontFamily={'Poppins_700Bold'} fontSize={'$2xl'} color={item.color}>
+                                    <Text fontFamily={'Poppins_700Bold'} fontSize={'$xl'} color={item.color}>
                                         {item.percent + '%'}
                                     </Text>
-                                    <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$sm'} color={'$white'}>
+                                    <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$xs'} color={'$white'}>
                                         {item.title}
                                     </Text>
                                 </VStack>

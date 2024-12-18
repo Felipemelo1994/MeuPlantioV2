@@ -9,7 +9,7 @@ export default function Home() {
     <VStack bg='$white'>
       <Header isHome />
 
-      <ScrollView zIndex={-1} pt={90}>
+      <ScrollView pt={130}>
         <GraphicsCard />
         <GridButtons />
         {/* <GraphicsCard />
@@ -30,4 +30,3 @@ export default function Home() {
     </VStack>
   );
 }
-

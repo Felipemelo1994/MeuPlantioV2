@@ -7,7 +7,7 @@ export default function Settings() {
     <VStack width={'$full'} bg='$white' alignItems='center'>
       <Header title={'Preferências'} />
 
-      <HStack w={'$full'} h={'$64'} px={'$4'} mt={95} borderWidth={1} borderColor='$trueGray200' bg='$white' alignItems='center' justifyContent='center'>
+      <HStack w={'$full'} h={'$64'} px={'$4'} mt={95} alignItems='center' justifyContent='center'>
         <Text>Settings</Text>
       </HStack>
     </VStack>
