@@ -6,6 +6,7 @@ import AddPlant from '../screens/AddPlant'
 import QRCode from '../screens/QRCode'
 import Profile from '../screens/Profile'
 import Settings from '../screens/Settings'
+import Subtract from '../../assets/Subtract.svg'
 import { View } from 'react-native'
 import React, { useRef } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
@@ -26,6 +27,7 @@ export default function TabRoutes() {
                 colors={['rgba(238,238,238,0.9)', 'rgba(188,188,188,0.9)']}
                 style={{ flexDirection: 'row', height: 65, bottom: 90, borderRadius: 15, alignItems: 'center', justifyContent: 'center', marginHorizontal: 16, marginBottom: -65, padding: 10 }}
             >
+                {/* <Subtract width={420} /> */}
                 {state.routes.map((route, index) => {
                     const { options } = descriptors[route.key];
                     const label = route.name;

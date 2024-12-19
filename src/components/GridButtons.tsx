@@ -13,7 +13,7 @@ import { useFonts } from 'expo-font';
 const DATA = [
     {
         id: '1',
-        title: 'Histórico de Plantio',
+        title: 'Adicionar Planta',
         subTitle: 'Veja e gerencie o histórico do seu plantio cadastrado',
         icon: <IconHistory height={30} width={30} />,
         route: 'plantingHistory',
@@ -32,13 +32,13 @@ const DATA = [
         icon: <IconSettings height={30} width={30} />,
         route: 'plantingHistory',
     },
-    {
-        id: '4',
-        title: 'Escanear QRCode',
-        subTitle: 'Cadastre novas plantas no seu plantio',
-        icon: <IconQrcode height={30} width={30} />,
-        route: 'userManagement',
-    }
+    // {
+    //     id: '4',
+    //     title: 'Escanear QRCode',
+    //     subTitle: 'Cadastre novas plantas no seu plantio',
+    //     icon: <IconQrcode height={30} width={30} />,
+    //     route: 'userManagement',
+    // }
 ]
 
 const GridButtons = ({ ...rest }) => {

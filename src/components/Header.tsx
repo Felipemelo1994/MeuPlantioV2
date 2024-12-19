@@ -29,21 +29,21 @@ export default function Header({ title, isHome, iconOption, isGoBack, ...rest }:
         <HStack px={'$4'} position='absolute' top={15} {...rest}>
             <LinearGradient
                 start={{ x: 0.444666, y: 0.5 }}
-                colors={['rgba(240,246,230,0.9)', 'rgba(230,255,190,0.9)']}
+                colors={['rgba(93,180,150,0.9)', 'rgba(17,139,80,0.9)']}
                 style={{ width: '100%', height: isHome ? 110 : 65, justifyContent: 'center', borderRadius: 15 }}>
                 {isHome ? (<HStack justifyContent='space-between' alignItems='center' mx={'$2'}>
-                    <Pressable $active-backgroundColor='$rgba(0,255,0,0.1)' rounded={'$lg'} onPress={() => navigation.navigate('profile')}>
-                        <HStack alignItems='center' space='sm'>
-                            <Avatar width={55} height={55} bg='#0DA572'>
-                                <AvatarFallbackText size='2xl'>Felipe Melo</AvatarFallbackText>
-                            </Avatar>
+                    {/* <Pressable> */}
+                    <HStack alignItems='center' space='sm'>
+                        <Avatar width={55} height={55} bg='#6CCBAB' borderColor='white' borderWidth={4}>
+                            <AvatarFallbackText fontFamily='Poppins_700Bold' size='2xl'>Felipe Melo</AvatarFallbackText>
+                        </Avatar>
 
-                            <VStack>
-                                <Text color='$black' fontSize={'$md'} fontFamily='Poppins_700Bold'>Olá Felipe Melo!</Text>
-                                <Text color='#999999' fontSize={'$sm'} fontFamily='Poppins_700Bold'>Núcleo Jardim do Norte</Text>
-                            </VStack>
-                        </HStack>
-                    </Pressable>
+                        <VStack>
+                            <Text color='$black' fontSize={'$md'} fontFamily='Poppins_700Bold'>Olá Felipe Melo!</Text>
+                            <Text color='white' fontSize={'$sm'} fontFamily='Poppins_700Bold'>Núcleo Jardim do Norte</Text>
+                        </VStack>
+                    </HStack>
+                    {/* </Pressable> */}
                     {/* <Divider orientation='vertical' w={8} h={8} rounded={'$full'} bgColor='$blueGray400' /> */}
 
                     {/* <HStack space={'xs'} alignItems={'center'} justifyContent={'center'} p={'$2.5'} rounded={'$full'} bgColor='rgba(0,0,0,0.09)'>
@@ -78,7 +78,7 @@ export default function Header({ title, isHome, iconOption, isGoBack, ...rest }:
                             m="$2"
                             onPress={() => navigation.goBack()}
                         >
-                            <FontAwesome6 name="arrow-left" size={20} color="#2F865A" />
+                            <FontAwesome6 name="arrow-left" size={20} color="white" />
                         </Pressable>}
 
                         <HStack space={'sm'} alignItems={'center'} justifyContent={'center'}>
@@ -87,7 +87,7 @@ export default function Header({ title, isHome, iconOption, isGoBack, ...rest }:
                                 fontSize={'$2xl'}
                                 textAlign="center"
                                 numberOfLines={1}
-                                color={'#2F865A'}
+                                color={'white'}
                             >
                                 {title}
                             </Text>
