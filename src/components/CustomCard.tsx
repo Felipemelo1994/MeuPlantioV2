@@ -91,7 +91,7 @@ const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, ...rest }: Props) 
                 <LinearGradient
                     start={{ x: 0.6, y: 0.1 }}
                     colors={['rgba(238,238,238,1)', 'rgba(238,238,238,1)']}
-                    style={{ width: '100%', height: '100%', justifyContent: 'center', borderRadius: 8, paddingHorizontal: 10 }}>
+                    style={{ width: '100%', height: '100%', justifyContent: 'center', borderRadius: 15, paddingHorizontal: 10 }}>
                     <HStack justifyContent={'space-between'}>
                         <HStack alignItems={'center'} space={'md'}>
                             {item.type ? (<Box

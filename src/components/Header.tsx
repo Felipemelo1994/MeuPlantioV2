@@ -1,7 +1,6 @@
-import { Avatar, AvatarBadge, AvatarFallbackText, AvatarImage, Box, Center, Divider, HStack, Pressable, Text, VStack } from '@gluestack-ui/themed';
+import { Avatar, AvatarFallbackText, HStack, Pressable, Text, VStack } from '@gluestack-ui/themed';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
-import Logo from '../../assets/logo_myplant.svg'
 import LogoMeuPlantio from '../../assets/logo_plantio_white.svg'
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins'
 import { useFonts } from 'expo-font';
@@ -26,11 +25,12 @@ export default function Header({ title, isHome, iconOption, isGoBack, ...rest }:
     }
 
     return (
-        <HStack px={'$4'} position='absolute' top={15} {...rest}>
+        <HStack px={'$4'} position='absolute' zIndex={999} top={15} {...rest}>
             <LinearGradient
                 start={{ x: 0.444666, y: 0.5 }}
                 colors={['rgba(93,180,150,0.9)', 'rgba(17,139,80,0.9)']}
                 style={{ width: '100%', height: isHome ? 110 : 65, justifyContent: 'center', borderRadius: 15 }}>
+
                 {isHome ? (<HStack justifyContent='space-between' alignItems='center' mx={'$2'}>
                     {/* <Pressable> */}
                     <HStack alignItems='center' space='sm'>

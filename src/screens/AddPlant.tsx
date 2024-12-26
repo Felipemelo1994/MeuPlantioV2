@@ -6,7 +6,7 @@ import { FontAwesome5 } from '@expo/vector-icons'
 export default function AddPlant() {
   return (
     <View style={styles.container}>
-      <Header title={'Adicionar planta'} iconOption={<FontAwesome5 name="question-circle" size={20} color="white" />} />
+      <Header isGoBack title={'Adicionar planta'} iconOption={<FontAwesome5 name="question-circle" size={20} color="white" />} />
       <Text>AddPlant</Text>
     </View>
   );

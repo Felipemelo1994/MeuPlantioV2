@@ -16,7 +16,7 @@ const DATA = [
         title: 'Adicionar Planta',
         subTitle: 'Veja e gerencie o histórico do seu plantio cadastrado',
         icon: <IconHistory height={30} width={30} />,
-        route: 'plantingHistory',
+        route: 'addPlant',
     },
     {
         id: '2',
@@ -32,13 +32,13 @@ const DATA = [
         icon: <IconSettings height={30} width={30} />,
         route: 'plantingHistory',
     },
-    // {
-    //     id: '4',
-    //     title: 'Escanear QRCode',
-    //     subTitle: 'Cadastre novas plantas no seu plantio',
-    //     icon: <IconQrcode height={30} width={30} />,
-    //     route: 'userManagement',
-    // }
+    {
+        id: '4',
+        title: 'Escanear QRCode',
+        subTitle: 'Cadastre novas plantas no seu plantio',
+        icon: <IconQrcode height={30} width={30} />,
+        route: 'userManagement',
+    }
 ]
 
 const GridButtons = ({ ...rest }) => {
@@ -55,7 +55,7 @@ const GridButtons = ({ ...rest }) => {
         <HStack flexWrap='wrap' w={'$full'} justifyContent='space-between' px={'$4'}  {...rest}>
             {DATA.map(item => {
                 return (
-                    <Pressable key={item.id} h={'$20'} mb={'$2'} onPress={() => navigation.navigate(item.route)} $active-backgroundColor='$rgba(0,255,0,0.9)' rounded={'$2xl'}>
+                    <Pressable key={item.id} h={'$20'} mb={'$2'} onPress={() => navigation.navigate(item?.route)} $active-backgroundColor='$rgba(0,255,0,0.9)' rounded={'$2xl'}>
                         <LinearGradient
                             start={{ x: 0, y: 0 }}
                             colors={['#EEEEEE', '#BCBCBC']}

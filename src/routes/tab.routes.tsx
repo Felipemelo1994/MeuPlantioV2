@@ -13,6 +13,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import LottieView from 'lottie-react-native'
 import StackRoutes from './stack.routes'
 import { Pressable } from '@gluestack-ui/themed'
+import PlantingHistory from '../screens/PlantingHistory'
 
 const Tab = createBottomTabNavigator()
 
@@ -55,7 +56,7 @@ export default function TabRoutes() {
 
                     const iconsArr: { [key: string]: React.ReactElement } = {
                         'home': <Entypo name='home' color={isFocused ? '#FFFFFF' : "#999999"} size={24} />,
-                        'addPlant': <FontAwesome name="leaf" size={24} color={isFocused ? '#FFFFFF' : "#999999"} />,
+                        'plantingHistory': <FontAwesome name="leaf" size={24} color={isFocused ? '#FFFFFF' : "#999999"} />,
                         'profile': <Fontisto name="person" size={22} color={isFocused ? '#FFFFFF' : "#999999"} />,
                         'settings': <Ionicons name='settings-sharp' color={isFocused ? '#FFFFFF' : "#999999"} size={24} />,
                     }
@@ -77,7 +78,7 @@ export default function TabRoutes() {
                                 {label === 'qrcode' ? (
                                     <LinearGradient
                                         start={{ x: 0, y: 0 }}
-                                        colors={isFocused ? ['#EEEEEE', '#BCBCBC', '#BCBCBC'] : ['#026B35', '#23A763']}
+                                        colors={isFocused ? ['#EEEEEE', '#BCBCBC', '#BCBCBC'] : ['rgba(93,180,150,0.9)', 'rgba(17,139,80,0.9)']}
                                         style={{ height: 85, width: 85, borderRadius: 50, backgroundColor: (isFocused ? '#FFF' : '#077E41'), alignItems: 'center', justifyContent: 'center', borderWidth: 6, borderColor: 'white', overflow: 'hidden' }}>
                                         {isFocused && <LottieView
                                             autoPlay
@@ -139,7 +140,7 @@ export default function TabRoutes() {
                 tabBarLabelStyle: { display: 'none' },
                 tabBarActiveTintColor: 'white'
             }} />
-            <Tab.Screen name='addPlant' component={AddPlant} options={{
+            <Tab.Screen name='plantingHistory' component={PlantingHistory} options={{
                 tabBarIcon: ({ color, size, focused }) => {
                     return (<>
                         <FontAwesome name="leaf" size={24} color={color} />

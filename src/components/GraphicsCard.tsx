@@ -31,15 +31,15 @@ export default function GraphicsCard() {
         return null
     }
     return (
-        <VStack h={190} w={'$full'} py={'$2'} px={'$4'}>
+        <VStack h={190} w={'$full'} pt={'$2'} px={'$4'}>
             <LinearGradient
                 start={{ x: 0, y: 0 }}
-                colors={['#EEEEEE', '#BCBCBC']}
+                colors={['#BCBCFF', '#C9DBEB']}
                 style={{ height: '100%', width: '100%', borderRadius: 15, alignItems: 'center', justifyContent: 'center', borderColor: 'white', overflow: 'hidden' }}>
                 <VStack flex={1} justifyContent='space-between'>
                     <HStack w={'$full'} h={80} px={'$4'} py={'$1.5'} top={12} justifyContent='space-between'>
                         <VStack h={'$full'} justifyContent='center'>
-                            <Text fontFamily={'Poppins_700Bold'} fontSize={'$6xl'} color={'#0DA572'}>
+                            <Text fontFamily={'Poppins_700Bold'} fontSize={'$6xl'} color={'#FFF'}>
                                 {'50'}
                             </Text>
                             <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$lg'} color={'$white'}>
@@ -66,7 +66,7 @@ export default function GraphicsCard() {
                                     <Text fontFamily={'Poppins_700Bold'} fontSize={'$xl'} color={item.color}>
                                         {item.percent + '%'}
                                     </Text>
-                                    <Text fontFamily={'Poppins_600SemiBold'} fontSize={'$xs'} color={'$white'}>
+                                    <Text fontFamily={'Poppins_700Bold'} fontSize={'$xs'} color={'$white'}>
                                         {item.title}
                                     </Text>
                                 </VStack>

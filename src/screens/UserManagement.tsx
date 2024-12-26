@@ -190,7 +190,7 @@ export default function UserManagement() {
             {!isEmpty ? (
                 <EmptyScreen title={'Não há usuários cadastradas'} subTitle={'Adicione um novo usuário'} icon={<IconUser height={120} width={120} />} />
             ) :
-                (<ScrollView w={'$full'} zIndex={-1} >
+                (<ScrollView w={'$full'} >
                     <VStack mt={65}>
                         <VStack w={'$full'} mt={'$10'} mb={'$20'}>
                             {users.map((item, index) => {
