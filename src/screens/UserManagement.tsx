@@ -200,6 +200,7 @@ export default function UserManagement() {
                                         item={item}
                                         hideDataStatus={true}
                                         isEmpty={!isEmpty}
+                                        bgColorList={['#C6F1CF', '#F0F6F2']}
                                         onPress={() => { }}
                                     />
                                 )

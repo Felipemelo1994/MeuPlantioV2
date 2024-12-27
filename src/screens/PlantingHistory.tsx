@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Header from '../components/Header';
-import { Box, HStack, ScrollView, Text, VStack } from '@gluestack-ui/themed';
+import { Box, HStack, Input, InputField, InputIcon, InputSlot, ScrollView, SearchIcon, Text, VStack } from '@gluestack-ui/themed';
 import { useNavigation } from '@react-navigation/native';
 import CustomCircleFab from '../components/CustomCircleFab';
 import MapView, { Marker, MarkerAnimated } from 'react-native-maps';
@@ -100,7 +100,7 @@ export default function PlantingHistory() {
 
     return (
         <VStack flex={1} bg='$white' justifyContent='center' alignItems='center'>
-            <Header title={'Histórico de Plantio'} />
+            <Header title={'Histórico de Plantio'} iconOption={<SearchIcon size={'xl'} color="white" />} />
 
             {!isEmpty ? (
                 <EmptyScreen title={'Não há plantas cadastradas'} subTitle={'Adicione uma nova planta'} icon={<IconHistory height={120} width={120} />} />
@@ -150,13 +150,14 @@ export default function PlantingHistory() {
                 </Box>
                 <CustomDivider label={'Histórico de plantas'} mt={'$10'} />
 
-                <VStack w={'$full'} mt={'$10'} mb={170}>
+                <VStack w={'$full'} mt={'$5'} mb={170}>
                     {plants.map((item, index) => {
                         return (
                             <CustomCard
                                 key={index}
                                 item={item}
                                 isEmpty={!isEmpty}
+                                bgColorList={['#BCBCBC', '#E2E2E2']}
                                 onPress={() => { }}
                             />
                         )

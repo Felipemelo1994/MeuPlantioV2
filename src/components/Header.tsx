@@ -11,10 +11,11 @@ type Props = any & {
     title: string
     isHome: boolean
     iconOption?: any
+    onClickIconOption?: void
     isGoBack?: boolean
 }
 
-export default function Header({ title, isHome, iconOption, isGoBack, ...rest }: Props) {
+export default function Header({ title, isHome, iconOption, onClickIconOption, isGoBack, ...rest }: Props) {
     const [fontLoaded] = useFonts({
         Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold
     })
@@ -106,7 +107,7 @@ export default function Header({ title, isHome, iconOption, isGoBack, ...rest }:
                                 position="absolute"
                                 right={0}
                                 m="$2"
-                                onPress={() => { }}
+                                onPress={() => navigation.navigate('searchScreen')}
                             >
                                 {iconOption}
                             </Pressable>

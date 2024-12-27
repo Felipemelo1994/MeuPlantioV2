@@ -28,25 +28,30 @@ export interface HistoryCardProps {
 type Props = any & {
     item: HistoryCardProps
     hideDataStatus?: boolean
+    bgColorList?: string[]
     isEmpty: boolean
     onPress: () => void
 }
 
 interface StatusType {
     [status: string]: {
-        icon: any
+        icon: any,
+        color: string[]
     }
 }
 
 export const statusIcon: StatusType = {
     FERTILIZED: {
         icon: <FertilizeGreenIcon height={35} width={35} />,
+        color: ['#C6F1CF', '#F0F6F2']
     },
     'NEED-FERTILIZING': {
         icon: <FertilizeYellowIcon height={35} width={35} />,
+        color: ['#F3CD80', '#FAECCF']
     },
     'NO-FERTILIZED': {
         icon: <FertilizeRedIcon height={35} width={35} />,
+        color: ['#FFBCBC', '#F4DEDE']
     },
 }
 
@@ -57,7 +62,7 @@ export function getInitials(fullName: string): string {
     return `${firstInitial}${lastInitial}`
 }
 
-const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, ...rest }: Props) => {
+const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, bgColorList, ...rest }: Props) => {
     const [fontLoaded] = useFonts({
         Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold
     })
@@ -79,18 +84,18 @@ const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, ...rest }: Props) 
         <>
             {isEmpty ? (<></>) : (<Pressable
                 onPress={onPress}
-                $active-backgroundColor='$rgba(0,255,0,0.5)'
+                $active-backgroundColor='$rgba(0,0,0,0.7)'
                 justifyContent={'center'}
                 mx={'$4'}
                 mb={'$2'}
                 h={'$20'}
                 // elevation={'$1'}
-                rounded={'$lg'}
+                rounded={'$2xl'}
                 {...rest}
             >
                 <LinearGradient
-                    start={{ x: 0.6, y: 0.1 }}
-                    colors={['rgba(238,238,238,1)', 'rgba(238,238,238,1)']}
+                    start={{ x: 0, y: 0 }}
+                    colors={bgColorList ? bgColorList : statusIcon[item.status].color}
                     style={{ width: '100%', height: '100%', justifyContent: 'center', borderRadius: 15, paddingHorizontal: 10 }}>
                     <HStack justifyContent={'space-between'}>
                         <HStack alignItems={'center'} space={'md'}>
@@ -115,7 +120,7 @@ const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, ...rest }: Props) 
                                     maxWidth={hideDataStatus ? '$56' : '$56'}
                                     fontFamily={'Poppins_600SemiBold'}
                                     fontSize={'$md'}
-                                    color={'$blueGray900'}
+                                    color={'$black'}
                                     numberOfLines={1}
                                 >
                                     {item.title}
@@ -131,7 +136,7 @@ const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, ...rest }: Props) 
                         {!hideDataStatus && (
                             <VStack alignItems={'flex-end'} justifyContent={'space-between'} space={'md'}>
                                 {statusIcon[item.status].icon}
-                                <Text fontFamily={'Poppins_400Regular'} color={'$blueGray700'}>
+                                <Text fontFamily={'Poppins_400Regular'} color={'$coolGray400'}>
                                     {moment(item.createdAt).format('DD.MM.YYYY')}
                                 </Text>
                             </VStack>

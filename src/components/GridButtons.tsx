@@ -20,7 +20,7 @@ const DATA = [
     },
     {
         id: '2',
-        title: 'Adicionar Usuários',
+        title: 'Gerenciar usuários',
         subTitle: 'Cadastre novas plantas no seu plantio',
         icon: <IconAddUser height={30} width={30} />,
         route: 'userManagement',
