@@ -10,6 +10,16 @@ import SearchScreen from '../screens/SearchScreen'
 
 const Stack = createNativeStackNavigator()
 
+// export type RootStackParamList = {
+//     homeScreen: undefined; // Rota sem parâmetros
+//     addPlant: undefined;
+//     addUser: undefined;
+//     searchScreen: undefined;
+//     userManagement: undefined;
+//     settings: undefined;
+//     qrcode: undefined;
+// };
+
 export default function StackRoutes() {
 
     return (

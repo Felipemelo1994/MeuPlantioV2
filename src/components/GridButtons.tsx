@@ -3,11 +3,13 @@ import { HStack, Text, Box, Pressable } from '@gluestack-ui/themed'
 import React from 'react'
 import IconHistory from '../../assets/icon-history.svg'
 import IconAddUser from '../../assets/icon-add-user.svg'
-import IconSettings from '../../assets/icon-settings.svg'
+import IconNewspaper from '../../assets/newspaper.svg'
 import IconQrcode from '../../assets/qrcode.svg'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins'
 import { useFonts } from 'expo-font';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack'
+// import { RootStackParamList } from '../routes/stack.routes'
 
 
 const DATA = [
@@ -27,22 +29,25 @@ const DATA = [
     },
     {
         id: '3',
-        title: 'Preferências',
+        title: 'Noticías',
         subTitle: 'Veja e gerencie o histórico do seu plantio cadastrado',
-        icon: <IconSettings height={30} width={30} />,
-        route: 'plantingHistory',
+        icon: <IconNewspaper height={40} width={40} />,
+        route: 'settings',
     },
-    {
-        id: '4',
-        title: 'Escanear QRCode',
-        subTitle: 'Cadastre novas plantas no seu plantio',
-        icon: <IconQrcode height={30} width={30} />,
-        route: 'userManagement',
-    }
+    // {
+    //     id: '4',
+    //     title: 'Escanear QRCode',
+    //     subTitle: 'Cadastre novas plantas no seu plantio',
+    //     icon: <IconQrcode height={30} width={30} />,
+    //     route: 'qrcode',
+    // }
 ]
+
+// type NavigationProp = NativeStackNavigationProp<RootStackParamList>;
 
 const GridButtons = ({ ...rest }) => {
     const navigation = useNavigation()
+    // const navigation = useNavigation<NavigationProp>();
     const [fontLoaded] = useFonts({
         Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold
     })
