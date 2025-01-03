@@ -2,8 +2,8 @@ import { useNavigation } from '@react-navigation/native'
 import { HStack, Text, Box, Pressable } from '@gluestack-ui/themed'
 import React from 'react'
 import IconHistory from '../../assets/icon-history.svg'
-import IconAddUser from '../../assets/icon-add-user.svg'
-import IconNewspaper from '../../assets/newspaper.svg'
+import IconAddUser from '../../assets/icon_add_user.svg'
+import IconNewspaper from '../../assets/icon_newspaper.svg'
 import IconQrcode from '../../assets/qrcode.svg'
 import { LinearGradient } from 'expo-linear-gradient'
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins'
@@ -24,7 +24,7 @@ const DATA = [
         id: '2',
         title: 'Gerenciar usuários',
         subTitle: 'Cadastre novas plantas no seu plantio',
-        icon: <IconAddUser height={30} width={30} />,
+        icon: <IconAddUser height={38} width={38} />,
         route: 'userManagement',
     },
     {

@@ -30,6 +30,9 @@ type Props = any & {
     hideDataStatus?: boolean
     bgColorList?: string[]
     isEmpty: boolean
+    textTitleColor?: string
+    textSubTitleColor?: string
+    textCreateAtColor?: string
     onPress: () => void
 }
 
@@ -62,7 +65,7 @@ export function getInitials(fullName: string): string {
     return `${firstInitial}${lastInitial}`
 }
 
-const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, bgColorList, ...rest }: Props) => {
+const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, bgColorList, textTitleColor, textSubTitleColor, textCreateAtColor, ...rest }: Props) => {
     const [fontLoaded] = useFonts({
         Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold
     })
@@ -120,13 +123,13 @@ const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, bgColorList, ...re
                                     maxWidth={hideDataStatus ? '$56' : '$56'}
                                     fontFamily={'Poppins_600SemiBold'}
                                     fontSize={'$md'}
-                                    color={'$black'}
+                                    color={textTitleColor ? textTitleColor : '$black'}
                                     numberOfLines={1}
                                 >
                                     {item.title}
                                 </Text>
                                 {item.subtitle && (
-                                    <Text fontFamily={'Poppins_400Regular'} color={'$blueGray700'}>
+                                    <Text fontFamily={'Poppins_400Regular'} color={textSubTitleColor ? textSubTitleColor : '$blueGray700'}>
                                         {item.subtitle} • {item.core}
                                     </Text>
                                 )}
@@ -136,7 +139,7 @@ const CustomCard = ({ item, hideDataStatus, isEmpty, onPress, bgColorList, ...re
                         {!hideDataStatus && (
                             <VStack alignItems={'flex-end'} justifyContent={'space-between'} space={'md'}>
                                 {statusIcon[item.status].icon}
-                                <Text fontFamily={'Poppins_400Regular'} color={'$coolGray400'}>
+                                <Text fontFamily={'Poppins_400Regular'} color={textCreateAtColor ? textCreateAtColor : '$coolGray400'}>
                                     {moment(item.createdAt).format('DD.MM.YYYY')}
                                 </Text>
                             </VStack>

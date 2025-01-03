@@ -12,7 +12,7 @@ import React, { useRef } from 'react'
 import { LinearGradient } from 'expo-linear-gradient'
 import LottieView from 'lottie-react-native'
 import StackRoutes from './stack.routes'
-import { Pressable } from '@gluestack-ui/themed'
+import { Pressable, VStack } from '@gluestack-ui/themed'
 import PlantingHistory from '../screens/PlantingHistory'
 
 const Tab = createBottomTabNavigator()
@@ -22,13 +22,14 @@ export default function TabRoutes() {
 
     function MyTabBar({ state, descriptors, navigation, insets }: BottomTabBarProps) {
         return (
-            <LinearGradient
-                start={{ x: 0.5, y: 0.01 }}
-                // end={{ x: 0.2, y: 0.6 }}
-                colors={['rgba(238,238,238,0.9)', 'rgba(188,188,188,0.9)']}
-                style={{ flexDirection: 'row', height: 65, bottom: 90, borderRadius: 15, alignItems: 'center', justifyContent: 'center', marginHorizontal: 16, marginBottom: -65, padding: 10 }}
-            >
-                {/* <Subtract width={420} /> */}
+            // <LinearGradient
+            //     start={{ x: 0.5, y: 0.01 }}
+            //     // end={{ x: 0.2, y: 0.6 }}
+            //     colors={['rgba(238,238,238,0.9)', 'rgba(188,188,188,0.9)']}
+            //     style={{ flexDirection: 'row', height: 65, bottom: 90, borderRadius: 15, alignItems: 'center', justifyContent: 'center', marginHorizontal: 16, marginBottom: -65, padding: 10 }}
+            // >
+            <VStack style={{ flexDirection: 'row', height: 65, bottom: 55, borderRadius: 15, alignItems: 'center', justifyContent: 'center', marginHorizontal: 15, marginBottom: -65 }} >
+                <Subtract width={422} position={'absolute'} bottom={0} />
                 {state.routes.map((route, index) => {
                     const { options } = descriptors[route.key];
                     const label = route.name;
@@ -55,10 +56,10 @@ export default function TabRoutes() {
                     };
 
                     const iconsArr: { [key: string]: React.ReactElement } = {
-                        'home': <Entypo name='home' color={isFocused ? '#FFFFFF' : "#999999"} size={24} />,
-                        'plantingHistory': <FontAwesome name="leaf" size={24} color={isFocused ? '#FFFFFF' : "#999999"} />,
-                        'profile': <Fontisto name="person" size={22} color={isFocused ? '#FFFFFF' : "#999999"} />,
-                        'settings': <Ionicons name='settings-sharp' color={isFocused ? '#FFFFFF' : "#999999"} size={24} />,
+                        'home': <Entypo name='home' color={isFocused ? '#000' : "#FFFFFF"} size={24} />,
+                        'plantingHistory': <FontAwesome name="leaf" size={24} color={isFocused ? '#000' : "#FFFFFF"} />,
+                        'profile': <Fontisto name="person" size={22} color={isFocused ? '#000' : "#FFFFFF"} />,
+                        'settings': <Ionicons name='settings-sharp' color={isFocused ? '#000' : "#FFFFFF"} size={24} />,
                     }
 
                     const iconList = {
@@ -72,6 +73,7 @@ export default function TabRoutes() {
                             onPress={onPress}
                             onLongPress={onLongPress}
                             flex={1}
+                            bottom={35}
                             alignItems='center'
                         >
                             <>
@@ -79,7 +81,7 @@ export default function TabRoutes() {
                                     <LinearGradient
                                         start={{ x: 0, y: 0 }}
                                         colors={isFocused ? ['#EEEEEE', '#BCBCBC', '#BCBCBC'] : ['rgba(93,180,150,0.9)', 'rgba(17,139,80,0.9)']}
-                                        style={{ height: 85, width: 85, borderRadius: 50, backgroundColor: (isFocused ? '#FFF' : '#077E41'), alignItems: 'center', justifyContent: 'center', borderWidth: 6, borderColor: 'white', overflow: 'hidden' }}>
+                                        style={{ height: 80, width: 80, borderRadius: 50, backgroundColor: (isFocused ? '#FFF' : '#077E41'), alignItems: 'center', justifyContent: 'center', borderColor: 'white', overflow: 'hidden' }}>
                                         {isFocused && <LottieView
                                             autoPlay
                                             ref={animation}
@@ -97,14 +99,15 @@ export default function TabRoutes() {
                                 ) : (
                                     <>
                                         {iconList[route.name]}
-                                        {isFocused && <View style={{ position: 'absolute', bottom: -10, width: 5, height: 5, borderRadius: 10, backgroundColor: '#077E41' }} />}
+                                        {isFocused && <View style={{ position: 'absolute', bottom: -10, width: 5, height: 5, borderRadius: 10, backgroundColor: '#000' }} />}
                                     </>
                                 )}
                             </>
                         </Pressable>
                     );
                 })}
-            </LinearGradient>
+            </VStack>
+            // </LinearGradient>
         )
     }
 

@@ -157,7 +157,7 @@ export default function PlantingHistory() {
                                 key={index}
                                 item={item}
                                 isEmpty={!isEmpty}
-                                bgColorList={['#BCBCBC', '#E2E2E2']}
+                                // bgColorList={['#CCD5AE', '#E0E5B6']}
                                 onPress={() => { }}
                             />
                         )
