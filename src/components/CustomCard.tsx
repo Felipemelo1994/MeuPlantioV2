@@ -1,10 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope */
 import { Avatar, AvatarFallbackText, Box, HStack, Pressable, Text, VStack } from '@gluestack-ui/themed'
-import FertilizeGreenIcon from '../../assets/fertiliz_green_icon.svg'
-import FertilizeYellowIcon from '../../assets/fertiliz_yellow_icon.svg'
-import FertilizeRedIcon from '../../assets/fertiliz_red_icon.svg'
+import FertilizeGreenIcon from '../../assets/fertilized_green_icon.svg'
+import FertilizeYellowIcon from '../../assets/fertilized_yellow_icon.svg'
+import FertilizeRedIcon from '../../assets/fertilized_red_icon.svg'
 import LeavesIcon from '../../assets/logo_myplant.svg'
-import IconPlanting from '../../assets/icon-planting.svg'
+import IconPlanting from '../../assets/icon_planting.svg'
 import IconHistory from '../../assets/icon-history.svg'
 import moment from 'moment'
 import { useFonts } from "expo-font";

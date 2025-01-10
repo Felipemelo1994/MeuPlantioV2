@@ -3,7 +3,7 @@ import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient'
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins'
 import { useFonts } from 'expo-font';
-import IconPlanting from '../../assets/icon-planting.svg'
+import IconPlanting from '../../assets/icon_planting.svg'
 
 const chartPlanting = [
     {

@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import { HStack, Text, Box, Pressable } from '@gluestack-ui/themed'
 import React from 'react'
-import IconHistory from '../../assets/icon-history.svg'
+import IconHistory from '../../assets/icon_history.svg'
 import IconAddUser from '../../assets/icon_add_user.svg'
 import IconNewspaper from '../../assets/icon_newspaper.svg'
 import IconQrcode from '../../assets/qrcode.svg'

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import { Box, HStack, Input, InputField, InputIcon, InputSlot, ScrollView, SearchIcon, Text, VStack } from '@gluestack-ui/themed';
 import { useNavigation } from '@react-navigation/native';
 import CustomCircleFab from '../components/CustomCircleFab';
-import MapView, { Marker, MarkerAnimated } from 'react-native-maps';
+import MapView, { Marker, MarkerAnimated, Region } from 'react-native-maps';
 import CustomDivider from '../components/CustomDivider';
 import CustomCard from '../components/CustomCard';
 import { Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold } from '@expo-google-fonts/poppins'
@@ -11,6 +11,9 @@ import { useFonts } from 'expo-font';
 import EmptyScreen from '../components/EmptyScreen';
 import IconHistory from '../../assets/icon-history.svg'
 import { LinearGradient } from 'expo-linear-gradient';
+import { Platform } from 'react-native';
+import TestGeolocation from './TestGeolocation';
+import * as Location from 'expo-location';
 
 const plants = [
     {
@@ -89,10 +92,74 @@ const chartPlanting = [
 
 export default function PlantingHistory() {
     const [isEmpty, setIsEmpty] = useState(true)
+    const [errorMsg, setErrorMsg] = useState<string | null>(null);
+    const [regionCoord, setRegionCoord] = useState<Region | null>(null);
+    const [address, setAddress] = useState<Location.LocationGeocodedAddress | null>(null);
+    const [locationCoords, setLocationCoords] = useState<Location.LocationObject | null>(null);
     const navigation = useNavigation()
     const [fontLoaded] = useFonts({
         Poppins_400Regular, Poppins_600SemiBold, Poppins_700Bold
     })
+
+    const getAddress = async () => {
+        // Solicita permissão de localização
+        const { status } = await Location.requestForegroundPermissionsAsync();
+        if (status !== 'granted') {
+            setErrorMsg('Permissão de localização negada.');
+            return;
+        }
+
+        try {
+            // Obtém a localização atual
+            const location = await Location.getCurrentPositionAsync({
+                accuracy: Location.Accuracy.High,
+            });
+            setLocationCoords(location)
+
+            // Faz a geocodificação reversa
+            const geocodedAddress = await Location.reverseGeocodeAsync({
+                latitude: location.coords.latitude,
+                longitude: location.coords.longitude,
+            });
+
+            const region: Region = {
+                latitude: location.coords.latitude,
+                longitude: location?.coords.longitude,
+                latitudeDelta: 0.05,
+                longitudeDelta: 0.05,
+            };
+
+            setRegionCoord(region)
+
+            // Define o primeiro resultado como o endereço
+            setAddress(geocodedAddress[0]);
+        } catch (error) {
+            console.error('Erro ao obter o endereço:', error);
+            setErrorMsg('Não foi possível obter o endereço.');
+        }
+    };
+
+    useEffect(() => {
+        getAddress();
+    }, []);
+
+    const markers = [
+        {
+            id: 1,
+            title: "Local 1",
+            description: "Descrição do local 1",
+            latitude: -23.55052,
+            longitude: -46.633308,
+        },
+        {
+            id: 2,
+            title: "Local 2",
+            description: "Descrição do local 2",
+            latitude: -3.093654,
+            longitude: -60.022513,
+        },
+    ];
+
 
     if (!fontLoaded) {
         return null
@@ -139,13 +206,20 @@ export default function PlantingHistory() {
                 </LinearGradient>
                 <CustomDivider label={'Mapa de plantas'} mb={'$8'} mt={'$5'} />
                 <Box height={'$64'} borderRadius={'$full'} rounded={'$2xl'} mx={'$4'} overflow='hidden' elevation={5}>
-                    <MapView initialRegion={{
-                        latitude: -3.02441,
-                        longitude: -59.97171,
-                        latitudeDelta: 0.01, // Ajuste conforme necessário para o nível de zoom desejado
-                        longitudeDelta: 0.01, // Ajuste conforme necessário para o nível de zoom desejado
-                    }} loadingBackgroundColor='#3D7E4A' style={{ width: '100%', height: '100%', borderRadius: 15, elevation: 10 }} >
-                        <MarkerAnimated title='Planta 1' coordinate={{ latitude: -3.02441, longitude: -59.97171 }} />
+                    <MapView
+                        mapType={Platform.OS == "android" ? "none" : "standard"}
+                        initialRegion={regionCoord!} style={{ width: '100%', height: '100%', borderRadius: 15, elevation: 10 }} >
+                        {markers.map(marker => (
+                            <Marker
+                                key={marker.id}
+                                coordinate={{
+                                    latitude: locationCoords?.coords?.latitude!,
+                                    longitude: locationCoords?.coords?.longitude!,
+                                }}
+                                title={marker.title}
+                                description={marker.description}
+                            />
+                        ))}
                     </MapView>
                 </Box>
                 <CustomDivider label={'Histórico de plantas'} mt={'$10'} />
@@ -157,7 +231,9 @@ export default function PlantingHistory() {
                                 key={index}
                                 item={item}
                                 isEmpty={!isEmpty}
-                                // bgColorList={['#CCD5AE', '#E0E5B6']}
+                                bgColorList={['#7E99A3', '#7E99A3']}
+                                textTitleColor={"white"}
+                                textCreateAtColor={"white"}
                                 onPress={() => { }}
                             />
                         )

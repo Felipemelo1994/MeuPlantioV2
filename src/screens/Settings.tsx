@@ -1,6 +1,7 @@
 import React from 'react';
 import Header from '../components/Header';
 import { VStack, Text, HStack } from '@gluestack-ui/themed';
+import LocationPicker from './TestGeolocationMap';
 
 export default function Settings() {
   return (
@@ -8,7 +9,8 @@ export default function Settings() {
       <Header title={'Preferências'} />
 
       <HStack w={'$full'} h={'$64'} px={'$4'} mt={95} alignItems='center' justifyContent='center'>
-        <Text>Settings</Text>
+        {/* <Text>Settings</Text> */}
+        <LocationPicker />
       </HStack>
     </VStack>
   );
